@@ -1,5 +1,6 @@
 package com.example.usersandsmth.infrastrucure.persistance;
 
+import com.example.usersandsmth.domain.model.User;
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
@@ -11,6 +12,10 @@ public final class UserEntity {
     private final Long id;
     private final String firstName;
     private final String lastName;
+
+    public UserEntity(){
+        this(null, null, null);
+    }
 
     public UserEntity(
             Long id,
