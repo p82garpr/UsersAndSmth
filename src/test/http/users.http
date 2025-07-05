@@ -1,0 +1,12 @@
+### Crear un nuevo usuario
+POST http://localhost:8081/users
+Content-Type: application/json
+
+{
+  "firstName": "Juan",
+  "lastName": "Pérez"
+}
+
+### Obtener un usuario por ID
+GET http://localhost:8081/users/1
+Accept: application/json 

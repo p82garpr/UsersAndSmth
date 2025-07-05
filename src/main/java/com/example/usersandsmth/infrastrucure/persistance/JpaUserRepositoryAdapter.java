@@ -4,6 +4,7 @@ import com.example.usersandsmth.application.port.out.UserRepositoryPort;
 import com.example.usersandsmth.domain.model.User;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -32,4 +33,12 @@ public class JpaUserRepositoryAdapter implements UserRepositoryPort {
         return Optional.of(
                 new User(id, "firstName", "lastName"));
     }
+
+    @Override
+    public List<User> findAll() {
+        return springDataUserRepository.findAll().stream()
+                .map(userEntity -> new User(userEntity.getId(), userEntity.getFirstName(), userEntity.getLastName()))
+                .toList();
+    }
+
 }
